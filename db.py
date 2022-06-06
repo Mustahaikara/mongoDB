@@ -15,3 +15,10 @@ albums = db.Albums  # luo automaattisesti jos ei ole
 
 # tulostetaan tietokannan collections nimet:
 print(db.list_collection_names())
+# kaikkien tietueiden tiedot
+result = albums.find()  # hakee tiedot json muodossa joka on dictionary
+for elem in result:
+    for key_, value_ in elem.items():
+        print(f'{key_} {value_}')
+result1 = albums.find_one({'album':'Tässä albumin nimi'})
+print(result1)
